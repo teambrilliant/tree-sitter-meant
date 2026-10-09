@@ -1,0 +1,182 @@
+==================
+domain header
+==================
+
+domain lending
+  mode model-first
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    name: (word))
+  (kw_other)
+  (kw_other))
+
+==================
+concept with nested dimension
+==================
+
+concept Loan
+  dimension status = open | returned
+  field due_date: date
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    name: (ref))
+  (declaration
+    kind: (kw_decl)
+    name: (word)
+    (operator)
+    (word)
+    (operator)
+    (word))
+  (kw_other)
+  (word)
+  (punctuation)
+  (word))
+
+==================
+shape with id and fuse
+==================
+
+shape S001 MidPack of Membership
+  where status = active
+  wait [ReturnBook] timeout 3 days -> SendReminder
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    id: (id)
+    name: (ref)
+    (kw_other)
+    (ref))
+  (kw_other)
+  (word)
+  (operator)
+  (word)
+  (kw_other)
+  (punctuation)
+  (ref)
+  (punctuation)
+  (kw_other)
+  (number)
+  (unit)
+  (operator)
+  (ref))
+
+==================
+action with branch, deny code, expect plant
+==================
+
+action ReturnBook
+  by member, librarian
+  requires OpenLoan else NOT_OPEN  # EXPECT: V2
+  in OverdueLoan :
+    effect
+      status = returned
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    name: (ref))
+  (actor_clause
+    (actor_value
+      (word))
+    (punctuation)
+    (actor_value
+      (word)))
+  (kw_other)
+  (ref)
+  (kw_other)
+  (deny_code)
+  (comment)
+  (kw_other)
+  (ref)
+  (punctuation)
+  (kw_other)
+  (word)
+  (operator)
+  (word))
+
+==================
+action with id and handle
+==================
+
+action A004 CancelPlan of Membership
+  undecided @alex "who owns the refund"
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    id: (id)
+    name: (ref)
+    (kw_other)
+    (ref))
+  (kw_other)
+  (handle)
+  (string))
+
+==================
+invariant and its rubric
+==================
+
+invariant NoteNeverScolds
+  check by judged
+  rubric "Does the note blame the member? Then FAIL."
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    name: (ref))
+  (kw_other)
+  (kw_clause)
+  (kw_other)
+  (kw_other)
+  (string))
+
+==================
+scenario with marker, lane, verified-by
+==================
+
+scenario OverdueDrawsAReminder (planned)
+  with OverdueLoan, today "2026-03-10"
+  expect
+    lane "Email": the note reaches the member
+  verified-by tests/lending/return.test.ts#returns
+
+---
+
+(document
+  (declaration
+    kind: (kw_decl)
+    name: (ref)
+    (marker))
+  (kw_other)
+  (ref)
+  (punctuation)
+  (context_entity)
+  (string)
+  (kw_other)
+  (kw_other)
+  (string)
+  (punctuation)
+  (word)
+  (kw_other)
+  (word)
+  (word)
+  (word)
+  (kw_other)
+  (vb_path))

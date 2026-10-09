@@ -1,0 +1,16 @@
+{
+  "decl": ["domain", "concept", "dimension", "touchpoints", "shape", "exposure", "action", "invariant", "scenario"],
+  "other": [
+    "mode", "uses", "model-first", "code-first", "mixed",
+    "field", "values", "fallback",
+    "of", "where", "wait", "timeout",
+    "to", "at", "must-see", "must-not-see",
+    "by", "requires", "else", "in", "otherwise", "effect", "new", "with",
+    "check", "schema", "execution", "scenario-coverage", "conformance-only", "judged", "rubric",
+    "expect", "lane", "checks", "via", "denied",
+    "note", "verified-by", "undecided",
+    "and", "or", "not", "no", "some"
+  ],
+  "context": ["actor", "today", "this"],
+  "units": ["day", "days", "week", "weeks", "month", "months", "year", "years"]
+}

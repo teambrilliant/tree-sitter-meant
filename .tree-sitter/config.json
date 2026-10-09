@@ -1,0 +1,20 @@
+{
+  "parser-directories": [".."],
+  "theme": {
+    "comment": { "color": 245, "italic": true },
+    "comment.doc": { "color": 208, "italic": true },
+    "string": 34,
+    "number": 173,
+    "keyword": { "color": 63, "bold": true },
+    "type.builtin": 37,
+    "variable.special": { "color": 170, "italic": true },
+    "label": { "color": 220, "bold": true },
+    "type": 39,
+    "constant": { "color": 166, "bold": true },
+    "attribute": { "color": 133, "italic": true },
+    "link_uri": { "color": 30, "underline": true },
+    "operator": 245,
+    "punctuation.delimiter": 240,
+    "title": { "color": 226, "bold": true }
+  }
+}

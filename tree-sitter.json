@@ -1,0 +1,21 @@
+{
+  "grammars": [
+    {
+      "name": "meant",
+      "scope": "source.meant",
+      "file-types": [
+        "meant"
+      ],
+      "injection-regex": "^meant$",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Line-oriented tree-sitter grammar for Meant Lang, a DSL for business intent and behavior",
+    "links": {
+      "repository": "https://github.com/teambrilliant/tree-sitter-meant"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-meant",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Line-oriented tree-sitter grammar for Meant Lang, a DSL for business intent and behavior",
+  "repository": { "type": "git", "url": "git+https://github.com/teambrilliant/tree-sitter-meant.git" },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.0"
+  },
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "parse": "scripts/parse.sh",
+    "test": "tree-sitter test",
+    "check": "scripts/check.sh",
+    "highlight": "scripts/highlight.sh",
+    "sync": "scripts/sync-examples.sh"
+  }
+}
